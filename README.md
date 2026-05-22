@@ -410,8 +410,7 @@ This project was created for educational purposes as part of the **Udacity Full 
 
 # 🌷 Thank You for Visiting Daise Flowers
 
-### Created with ❤️ by Shahd Batta
+### Created by Shahd Batta
 
-*"Where flowers make every moment unforgettable."*
 
 </div>
