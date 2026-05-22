@@ -1,147 +1,156 @@
 <div class="checkout-container">
-  <div class="checkout-content">
-    <div class="checkout-form-section">
-      <h2>Checkout</h2>
-      <p class="form-subtitle">Complete your purchase</p>
+  <h2>Checkout</h2>
 
-      <form (ngSubmit)="onSubmit()" [ngClass]="{ 'submitted': submitted }">
-        <!-- Personal Information -->
+  <div class="checkout-layout">
+    <!-- Checkout Form -->
+    <div class="checkout-form">
+      <form (ngSubmit)="onSubmit()">
+        <!-- Personal Information Section -->
         <fieldset>
           <legend>Personal Information</legend>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name *</label>
-              <input
-                type="text"
-                id="firstName"
-                [(ngModel)]="firstName"
-                name="firstName"
-                minlength="2"
-                required
-                [class.error]="hasError('firstName')"
-              />
-              <small *ngIf="hasError('firstName')" class="error-message">
-                {{ getFieldError('firstName') }}
-              </small>
-            </div>
-
-            <div class="form-group">
-              <label for="lastName">Last Name *</label>
-              <input
-                type="text"
-                id="lastName"
-                [(ngModel)]="lastName"
-                name="lastName"
-                minlength="2"
-                required
-                [class.error]="hasError('lastName')"
-              />
-              <small *ngIf="hasError('lastName')" class="error-message">
-                {{ getFieldError('lastName') }}
-              </small>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input
-                type="email"
-                id="email"
-                [(ngModel)]="email"
-                name="email"
-                required
-                [class.error]="hasError('email')"
-              />
-              <small *ngIf="hasError('email')" class="error-message">
-                {{ getFieldError('email') }}
-              </small>
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Phone *</label>
-              <input
-                type="tel"
-                id="phone"
-                [(ngModel)]="phone"
-                name="phone"
-                required
-                [class.error]="hasError('phone')"
-              />
-              <small *ngIf="hasError('phone')" class="error-message">
-                {{ getFieldError('phone') }}
-              </small>
-            </div>
-          </div>
-
-          <div class="form-group full-width">
-            <label for="address">Street Address *</label>
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
             <input
               type="text"
-              id="address"
-              [(ngModel)]="address"
-              name="address"
+              id="firstName"
+              [(ngModel)]="customerInfo.firstName"
+              (ngModelChange)="onFormChange()"
+              name="firstName"
               required
-              [class.error]="hasError('address')"
+              minlength="2"
+              class="form-input"
             />
-            <small *ngIf="hasError('address')" class="error-message">
-              {{ getFieldError('address') }}
-            </small>
+            <span *ngIf="hasError('firstName')" class="error-message">
+              {{ getErrorMessage('firstName') }}
+            </span>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="city">City *</label>
-              <input
-                type="text"
-                id="city"
-                [(ngModel)]="city"
-                name="city"
-                required
-                [class.error]="hasError('city')"
-              />
-              <small *ngIf="hasError('city')" class="error-message">
-                {{ getFieldError('city') }}
-              </small>
-            </div>
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input
+              type="text"
+              id="lastName"
+              [(ngModel)]="customerInfo.lastName"
+              (ngModelChange)="onFormChange()"
+              name="lastName"
+              required
+              minlength="2"
+              class="form-input"
+            />
+            <span *ngIf="hasError('lastName')" class="error-message">
+              {{ getErrorMessage('lastName') }}
+            </span>
+          </div>
 
-            <div class="form-group">
-              <label for="zipCode">Zip Code *</label>
-              <input
-                type="text"
-                id="zipCode"
-                [(ngModel)]="zipCode"
-                name="zipCode"
-                required
-                [class.error]="hasError('zipCode')"
-              />
-              <small *ngIf="hasError('zipCode')" class="error-message">
-                {{ getFieldError('zipCode') }}
-              </small>
-            </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              [(ngModel)]="customerInfo.email"
+              (ngModelChange)="onFormChange()"
+              name="email"
+              required
+              class="form-input"
+            />
+            <span *ngIf="hasError('email')" class="error-message">
+              {{ getErrorMessage('email') }}
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input
+              type="tel"
+              id="phone"
+              [(ngModel)]="customerInfo.phone"
+              (ngModelChange)="onFormChange()"
+              name="phone"
+              required
+              class="form-input"
+            />
+            <span *ngIf="hasError('phone')" class="error-message">
+              {{ getErrorMessage('phone') }}
+            </span>
           </div>
         </fieldset>
 
-        <!-- Payment Information -->
+        <!-- Address Section -->
+        <fieldset>
+          <legend>Shipping Address</legend>
+
+          <div class="form-group">
+            <label for="address">Address *</label>
+            <input
+              type="text"
+              id="address"
+              [(ngModel)]="customerInfo.address"
+              (ngModelChange)="onFormChange()"
+              name="address"
+              required
+              minlength="5"
+              class="form-input"
+            />
+            <span *ngIf="hasError('address')" class="error-message">
+              {{ getErrorMessage('address') }}
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="city">City *</label>
+            <input
+              type="text"
+              id="city"
+              [(ngModel)]="customerInfo.city"
+              (ngModelChange)="onFormChange()"
+              name="city"
+              required
+              minlength="2"
+              class="form-input"
+            />
+            <span *ngIf="hasError('city')" class="error-message">
+              {{ getErrorMessage('city') }}
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="zipCode">Zip Code *</label>
+            <input
+              type="text"
+              id="zipCode"
+              [(ngModel)]="customerInfo.zipCode"
+              (ngModelChange)="onFormChange()"
+              name="zipCode"
+              required
+              minlength="3"
+              class="form-input"
+            />
+            <span *ngIf="hasError('zipCode')" class="error-message">
+              {{ getErrorMessage('zipCode') }}
+            </span>
+          </div>
+        </fieldset>
+
+        <!-- Payment Section -->
         <fieldset>
           <legend>Payment Information</legend>
 
-          <div class="form-group full-width">
+          <div class="form-group">
             <label for="cardNumber">Card Number *</label>
             <input
               type="text"
               id="cardNumber"
-              [(ngModel)]="cardNumber"
+              [(ngModel)]="customerInfo.cardNumber"
+              (ngModelChange)="onFormChange()"
               name="cardNumber"
-              maxlength="16"
-              placeholder="1234567890123456"
               required
-              [class.error]="hasError('cardNumber')"
+              maxlength="16"
+              class="form-input"
             />
-            <small *ngIf="hasError('cardNumber')" class="error-message">
-              {{ getFieldError('cardNumber') }}
-            </small>
+            <span *ngIf="hasError('cardNumber')" class="error-message">
+              {{ getErrorMessage('cardNumber') }}
+            </span>
           </div>
 
           <div class="form-row">
@@ -150,16 +159,16 @@
               <input
                 type="text"
                 id="expiryDate"
-                [(ngModel)]="expiryDate"
+                [(ngModel)]="customerInfo.expiryDate"
+                (ngModelChange)="onFormChange()"
                 name="expiryDate"
-                placeholder="12/25"
-                maxlength="5"
                 required
-                [class.error]="hasError('expiryDate')"
+                placeholder="MM/YY"
+                class="form-input"
               />
-              <small *ngIf="hasError('expiryDate')" class="error-message">
-                {{ getFieldError('expiryDate') }}
-              </small>
+              <span *ngIf="hasError('expiryDate')" class="error-message">
+                {{ getErrorMessage('expiryDate') }}
+              </span>
             </div>
 
             <div class="form-group">
@@ -167,55 +176,48 @@
               <input
                 type="text"
                 id="cvv"
-                [(ngModel)]="cvv"
+                [(ngModel)]="customerInfo.cvv"
+                (ngModelChange)="onFormChange()"
                 name="cvv"
-                maxlength="3"
-                placeholder="123"
                 required
-                [class.error]="hasError('cvv')"
+                maxlength="3"
+                class="form-input"
               />
-              <small *ngIf="hasError('cvv')" class="error-message">
-                {{ getFieldError('cvv') }}
-              </small>
+              <span *ngIf="hasError('cvv')" class="error-message">
+                {{ getErrorMessage('cvv') }}
+              </span>
             </div>
           </div>
         </fieldset>
 
-        <div class="form-actions">
-          <button type="button" class="btn btn-secondary" (click)="goBack()" [disabled]="isProcessing">
-            Back to Cart
-          </button>
-          <button type="submit" class="btn btn-primary" [disabled]="isProcessing">
-            {{ isProcessing ? 'Processing...' : 'Complete Order' }}
-          </button>
-        </div>
+        <button type="submit" class="btn btn-submit">Place Order</button>
       </form>
     </div>
 
-    <!-- Order Summary (Sticky) -->
-    <div class="checkout-summary">
+    <!-- Order Summary Sidebar -->
+    <div class="order-summary">
       <h3>Order Summary</h3>
-      
+
       <div class="summary-items">
         <div *ngFor="let item of cartItems" class="summary-item">
-          <span class="item-name">{{ item.name }} x{{ item.quantity }}</span>
+          <span class="item-label">{{ item.name }} x {{ item.quantity }}</span>
           <span class="item-price">${{ (item.price * item.quantity) | number: '1.2-2' }}</span>
         </div>
       </div>
 
-      <div class="summary-divider"></div>
-
-      <div class="summary-row">
-        <span>Subtotal</span>
-        <span>${{ cartTotal | number: '1.2-2' }}</span>
-      </div>
-      <div class="summary-row">
-        <span>Shipping</span>
-        <span>Free</span>
-      </div>
-      <div class="summary-row total">
-        <span>Total</span>
-        <span>${{ cartTotal | number: '1.2-2' }}</span>
+      <div class="summary-totals">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span>${{ cartTotal | number: '1.2-2' }}</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping:</span>
+          <span>Free</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span>${{ cartTotal | number: '1.2-2' }}</span>
+        </div>
       </div>
     </div>
   </div>

@@ -33,9 +33,10 @@
           <td>
             <input 
               type="number" 
-              [value]="item.quantity" 
+              [(ngModel)]="item.quantity"
+              (ngModelChange)="updateQuantity(item.id, $event)"
               min="1"
-              (change)="updateQuantity(item.id, $event)"
+              [name]="'quantity-' + item.id"
               class="quantity-input"
             />
           </td>

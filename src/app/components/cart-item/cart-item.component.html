@@ -1,1 +1,36 @@
-<p>cart-item works!</p>
+<div class="cart-item-container">
+  <div class="item-details">
+    <img [src]="item.image" [alt]="item.name" class="item-image" />
+    <div class="item-info">
+      <h4>{{ item.name }}</h4>
+      <p class="category">{{ item.category }}</p>
+    </div>
+  </div>
+
+  <div class="item-price">
+    ${{ item.price | number: '1.2-2' }}
+  </div>
+
+  <div class="item-quantity">
+    <input 
+      type="number" 
+      [(ngModel)]="item.quantity"
+      (ngModelChange)="onQuantityChange($event)"
+      min="1"
+      [name]="'qty-' + item.id"
+      class="quantity-input"
+    />
+  </div>
+
+  <div class="item-total">
+    ${{ (item.price * item.quantity) | number: '1.2-2' }}
+  </div>
+
+  <button 
+    class="btn-remove" 
+    (click)="onRemove()"
+    title="Remove from cart"
+  >
+    Remove
+  </button>
+</div>
