@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <h1 class="logo-text">Daise</h1>
+    </div>
+
+    <nav class="nav">
+      <a (click)="navigateTo('/')" class="nav-link">Flowers</a>
+        <a (click)="navigateTo('/about')" class="nav-link">About</a>
+    <a (click)="navigateTo('/contact')" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a (click)="navigateTo('/cart')" class="cart-link">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+      </a>
+      <button class="user-icon">👤</button>
+    </div>
+  </div>
+</header>

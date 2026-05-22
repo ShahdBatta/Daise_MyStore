@@ -1,0 +1,86 @@
+<div class="product-details-container">
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <p>Loading product details...</p>
+  </div>
+
+  <!-- Product Details -->
+  <div *ngIf="!loading && product" class="product-details">
+    <!-- Back Button -->
+    <button class="back-button" (click)="goBack()">
+      ← Back to Flowers
+    </button>
+
+    <div class="details-content">
+      <!-- Image Section -->
+      <div class="image-section">
+        <div class="product-image-wrapper">
+          <img [src]="product.image" [alt]="product.name" class="product-image" />
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="info-section">
+        <p class="category-badge">{{ product.category }}</p>
+        <h1 class="product-name">{{ product.name }}</h1>
+        
+        <div class="price-section">
+          <span class="price">${{ product.price | number: '1.2-2' }}</span>
+        </div>
+
+        <div class="description-section">
+          <h3>Description</h3>
+          <p>{{ product.description }}</p>
+        </div>
+
+        <!-- Quantity Selector -->
+        <div class="quantity-selector">
+          <label>Quantity:</label>
+          <div class="quantity-controls">
+  <button (click)="decreaseQuantity()" [disabled]="quantity <= 1" class="qty-btn" type="button">−</button>
+  <input type="number" [(ngModel)]="quantity" min="1" class="qty-input" name="quantity" />
+  <button (click)="increaseQuantity()" class="qty-btn" type="button">+</button>
+</div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn btn-primary" (click)="addToCart()">
+            Add to Cart
+          </button>
+          <button class="btn btn-secondary" (click)="goBack()">
+            Continue Shopping
+          </button>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info-grid">
+          <div class="info-item">
+            <span class="info-label">Freshness Guaranteed</span>
+            <span class="info-value">Handpicked daily</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Delivery</span>
+            <span class="info-value">Free shipping</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Satisfaction</span>
+            <span class="info-value">100% guarantee</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Not Found -->
+  <div *ngIf="!loading && !product" class="not-found">
+    <h2>Product Not Found</h2>
+    <p>Sorry, we couldn't find that product.</p>
+    <button class="btn btn-primary" (click)="goBack()">Back to Shop</button>
+  </div>
+
+  <!-- Notification Toast -->
+  <div *ngIf="showNotification" class="notification">
+    {{ notificationMessage }}
+  </div>
+</div>

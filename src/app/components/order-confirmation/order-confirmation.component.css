@@ -1,0 +1,138 @@
+.confirmation-container {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f7f4;
+  padding: 2rem;
+}
+
+.confirmation-content {
+  background: white;
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: #d4997d;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto 1.5rem;
+}
+
+.confirmation-content h2 {
+  font-size: 2rem;
+  color: #3d3d3d;
+  margin: 0 0 1rem 0;
+}
+
+.order-number {
+  font-size: 1.1rem;
+  color: #d4997d;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+}
+
+.confirmation-message {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.confirmation-message p {
+  margin: 0.8rem 0;
+}
+
+.confirmation-next-steps {
+  background: #f9f7f4;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.confirmation-next-steps h3 {
+  color: #3d3d3d;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.confirmation-next-steps ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.confirmation-next-steps li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.confirmation-next-steps li:last-child {
+  margin-bottom: 0;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  background: #d4997d;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.step-text {
+  color: #666;
+  font-weight: 500;
+}
+
+.btn {
+  background: #3d3d3d;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #2a2a2a;
+}
+
+.btn-primary {
+  background: #3d3d3d;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .confirmation-content {
+    padding: 2rem 1rem;
+  }
+
+  .confirmation-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .confirmation-next-steps {
+    padding: 1.5rem;
+  }
+}

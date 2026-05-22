@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Cute Corsage Flower",
+    "category": "Corsages",
+    "price": 29.99,
+    "image": "assets/images/corsage.jpg",
+    "description": "A delicate corsage flower perfect for special events. This handcrafted piece features fresh blooms carefully arranged for an elegant touch."
+  },
+  {
+    "id": 2,
+    "name": "Enchanted Garden Bouquet",
+    "category": "Bouquets",
+    "price": 79.99,
+    "image": "assets/images/garden bouquet.jpg",
+    "description": "A stunning bouquet featuring a harmonious blend of pink roses, white lilies, and lush green foliage. Each flower is selected for its beauty and freshness."
+  },
+  {
+    "id": 3,
+    "name": "Aesthetic Home Flowers",
+    "category": "Centerpieces",
+    "price": 59.99,
+    "image": "assets/images/home flower.jpg",
+    "description": "Perfect for brightening up your home, these aesthetic flower arrangements combine elegance with simplicity."
+  },
+  {
+    "id": 4,
+    "name": "Luxury Sunshine Flower Box",
+    "category": "Boxes",
+    "price": 99.99,
+    "image": "assets/images/luxury sunshine.jpg",
+    "description": "A luxurious flower box filled with the finest blooms. Perfect for gifts or special celebrations."
+  },
+  {
+    "id": 5,
+    "name": "Rose Bouquet",
+    "category": "Bouquets",
+    "price": 85.00,
+    "image": "assets/images/rose.jpg",
+    "description": "A classic bouquet of premium red roses with white filler flowers. Perfect for anniversaries and romantic occasions."
+  },
+  {
+    "id": 6,
+    "name": "Sunny Daisy Mix",
+    "category": "Bouquets",
+    "price": 49.99,
+    "image": "assets/images/sunny daisy.jpg",
+    "description": "Brighten someone's day with this cheerful arrangement of sunflowers and daisies. Great for any occasion."
+  },
+  {
+    "id": 7,
+    "name": "Spring Tulip Arrangement",
+    "category": "Centerpieces",
+    "price": 69.99,
+    "image": "assets/images/spring tulip.jpg",
+    "description": "Fresh spring tulips in vibrant colors arranged in an elegant vase. This brings the beauty of spring to your home."
+  },
+  {
+    "id": 8,
+    "name": "Deluxe Gift Box",
+    "category": "Boxes",
+    "price": 119.99,
+    "image": "assets/images/gift box.jpg",
+    "description": "Our premium gift box features an assortment of the finest flowers, carefully arranged and packaged for luxury."
+  },
+  {
+    "id": 9,
+    "name": "Orchid Paradise",
+    "category": "Centerpieces",
+    "price": 89.99,
+    "image": "assets/images/orchid paradise.jpg",
+    "description": "Exotic orchids combined with tropical greenery create this stunning centerpiece. A true masterpiece of nature's artistry."
+  },
+  {
+    "id": 10,
+    "name": "Cherry Blossom Festival",
+    "category": "Bouquets",
+    "price": 94.99,
+    "image": "assets/images/cherry blossom bouquet.jpg",
+    "description": "Inspired by the beauty of cherry blossoms, this bouquet features delicate pink and white flowers that capture spring essence."
+  },
+  {
+    "id": 11,
+    "name": "Love and Romance Box",
+    "category": "Boxes",
+    "price": 109.99,
+    "image": "assets/images/love box.jpg",
+    "description": "A specially curated box for expressing deep love and affection. Features a mix of roses, peonies, and luxurious greenery."
+  },
+  {
+    "id": 12,
+    "name": "Graduation Celebration",
+    "category": "Corsages",
+    "price": 39.99,
+    "image": "assets/images/graduation box.jpg",
+    "description": "A festive corsage perfect for graduation celebrations. Features vibrant flowers that symbolize achievement and joy."
+  }
+]

@@ -1,0 +1,58 @@
+<div class="products-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2 class="hero-title">Discover</h2>
+      <h1 class="hero-heading">Our Finest Selection</h1>
+      <p class="hero-description">Discover Daise, where the artistry of flowers blends with your emotions.</p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="category-filter">
+    <button 
+      *ngFor="let cat of categories"
+      [class.active]="selectedCategory === cat"
+      (click)="selectCategory(cat)"
+      class="category-btn"
+    >
+      {{ cat | titlecase }}
+    </button>
+  </section>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading">
+    <p>Loading our beautiful flowers...</p>
+  </div>
+
+  <!-- No Products -->
+  <div *ngIf="!loading && filteredProducts.length === 0" class="no-products">
+    <p>No products found in this category.</p>
+  </div>
+
+  <!-- Products Grid -->
+  <section class="products-grid" *ngIf="!loading && filteredProducts.length > 0">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <div class="product-image-container">
+        <img [src]="product.image" [alt]="product.name" class="product-image" />
+        <div class="product-overlay">
+          <button class="btn-details" (click)="viewDetails(product.id)">View Details</button>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-category">{{ product.category }}</p>
+        <p class="product-price">${{ product.price | number: '1.2-2' }}</p>
+        <button class="btn-add-to-cart" (click)="addToCart(product)">
+          + Add to Cart
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notification Toast -->
+  <div *ngIf="showNotification" class="notification">
+    {{ notificationMessage }}
+  </div>
+</div>
